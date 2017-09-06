@@ -1,0 +1,49 @@
+{
+  "name": "electronquickstart",
+  "version": "1.0.0",
+  "description": "electron-quick-start plus autoUpdater, realm, react, and router",
+  "main": "main.js",
+  "scripts": {
+    "setup-once": "electron-rebuild -f -w realm",
+    "webpack:run": "webpack -p",
+    "start": "npm run webpack:run && NDOE_ENV='production' electron .",
+    "webpack": "webpack -d --watch",
+    "debug": "npm run webpack:run && NODE_ENV='development' electron .",
+    "dist": "NODE_ENV='production' build -mw --x64",
+    "sign": "codesign --deep --force --verbose --sign 'Mac Developer: XXXXXXXXXXX (1111111111)' ./dist/mac/electronquickstart.app",
+    "release": "npm run dist; npm run sign"
+  },
+  "repository": "https://github.com/code-propagator/electron-quick-start-realm-react-router.git",
+  "keywords": [
+    "Electron",
+    "autoUpdater",
+    "Realm",
+    "React",
+    "Router"
+  ],
+  "author": "code-propagator",
+  "license": "MIT",
+  "build": {
+    "appId": "aaa.bbb.ccc.electronquickstart"
+  },
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-builder": "^19.20.1",
+    "electron-rebuild": "^1.6.0",
+    "uglifyjs-webpack-plugin": "^0.4.6"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "history": "^4.7.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
+    "realm": "^1.11.0",
+    "request-promise": "^4.2.1",
+    "uuid": "^3.1.0",
+    "webpack": "^3.5.5"
+  }
+}
